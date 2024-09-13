@@ -8,4 +8,17 @@
     <string name="bttmregistrar">Registrar</string>
     <string name="nocuenta">¿No tienes una cuenta?</string>
     <string name="registrate">Regístrate</string>
+
+    <string name="descripcion_flecha">Flecha que indica la dirección hacia atras</string>
+
+    <string name="titulo_mante">Mantenimiento</string>
+    <string name="aceites">Aceites y filtros</string>
+    <string name="refrigeracion">Refrigeración</string>
+    <string name="frenos">Frenos</string>
+    <string name="correas">Correas y cadenas</string>
+    <string name="bujias">Bujías</string>
+    <string name="neumaticos">Neumáticos</string>
+    <string name="bttmregistrarmanten">Registrar mantenimiento</string>
+
+
 </resources>
