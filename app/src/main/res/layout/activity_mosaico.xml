@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,173 +11,176 @@
 
 
     <!-- Aquí empieza table -->
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="365dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="365dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="55dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/descripcion_flecha"
-            android:padding="15dp"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/arrow" />
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/descripcion_flecha"
+                android:padding="15dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/arrow" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="283dp"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/bold"
-            android:textColor="@color/colorNegrita"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:text="@string/titulo_mante"/>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="283dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="@string/titulo_mante"
+                android:textColor="@color/colorNegrita"
+                android:textSize="30sp" />
 
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3">
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/aceite_filtros"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/aceites"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/refrigeracion"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/refrigeracion"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/frenos"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/frenos"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/correas_cadenas"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/correas"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/bujias"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/bujias"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/esquinas_mosaico"
+                android:drawableTop="@drawable/neumaticos"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:paddingBottom="25dp"
+                android:text="@string/neumaticos"
+                android:textAllCaps="false"
+                android:textColor="@color/colorNegrita"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button4" />
+        </GridLayout>
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_registrar"
+            android:fontFamily="@font/semibold"
+            android:text="@string/bttmregistrarmanten"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/aceite_filtros"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/aceites"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/refrigeracion"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/refrigeracion"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="27dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/frenos"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/frenos"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/correas_cadenas"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/correas"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="27dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/bujias"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/bujias"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/esquinas_mosaico"
-        android:drawableTop="@drawable/neumaticos"
-        android:fontFamily="@font/regular"
-        android:gravity="center"
-        android:paddingTop="35dp"
-        android:paddingBottom="25dp"
-        android:text="@string/neumaticos"
-        android:textAllCaps="false"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/button_registrar"
-        android:fontFamily="@font/semibold"
-        android:text="@string/bttmregistrarmanten"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
