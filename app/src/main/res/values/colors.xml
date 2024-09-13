@@ -7,4 +7,8 @@
     <color name="colorStart">#182724</color>
     <color name="colorEnd">#05CAAD</color>
     <color name="colorNegrita">#040415</color>
+    <color name="colorGris">#EBECEDFF</color>
+    <color name="textColorHint">#52040415</color>
+    <color name="backgroundTint">#EAEBEC</color>
+
 </resources>
