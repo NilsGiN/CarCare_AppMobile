@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Prueba1</string>
+    <string name="iniciosesion">Inicio Sesión</string>
+    <string name="bienvenida">Bienvenido a CarCare</string>
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_contraseña">Contraseña</string>
+    <string name="olvidastecontra">¿Olvidaste tu contraseña?</string>
+    <string name="bttmregistrar">Registrar</string>
+    <string name="nocuenta">¿No tienes una cuenta?</string>
+    <string name="registrate">Regístrate</string>
+</resources>
