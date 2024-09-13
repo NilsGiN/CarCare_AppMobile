@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Login -->
     <string name="app_name">Prueba1</string>
     <string name="iniciosesion">Inicio Sesión</string>
     <string name="bienvenida">Bienvenido a CarCare</string>
     <string name="hint_usuario">Usuario</string>
     <string name="hint_contraseña">Contraseña</string>
     <string name="olvidastecontra">¿Olvidaste tu contraseña?</string>
-    <string name="bttmregistrar">Registrar</string>
+    <string name="bttminiciar">Iniciar</string>
     <string name="nocuenta">¿No tienes una cuenta?</string>
     <string name="registrate">Regístrate</string>
 
-    <string name="descripcion_flecha">Flecha que indica la dirección hacia atras</string>
+    <!-- Registro -->
+    <string name="companero">Tu compañero digital para un auto</string>
+    <string name="excelenteestado">siempre en excelente estado</string>
+    <string name="sicuenta">¿Ya tienes una cuenta?</string>
+    <string name="bttmregistrar">Registrar</string>
 
+    <!-- Mosaico -->
+    <string name="descripcion_flecha">Flecha que indica la dirección hacia atras</string>
     <string name="titulo_mante">Mantenimiento</string>
     <string name="aceites">Aceites y filtros</string>
     <string name="refrigeracion">Refrigeración</string>
