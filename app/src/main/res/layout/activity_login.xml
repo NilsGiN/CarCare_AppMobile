@@ -8,6 +8,11 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@color/background">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 
     <!-- Margen en dp -->
     <!-- Tamaño de texto en sp -->
@@ -19,21 +24,21 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081"
+        app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/car" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        app:layout_constraintVertical_bias="0.04"
         android:fontFamily="@font/semibold"
         android:text="@string/iniciosesion"
         android:textColor="@color/colorNegrita"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -42,23 +47,24 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        app:layout_constraintVertical_bias="0.01"
         android:fontFamily="@font/regular"
         android:text="@string/bienvenida"
         android:textColor="@color/colorNegrita"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
+        app:layout_constraintVertical_bias="0.07"
+        android:background="@drawable/background_edittext"
         android:ems="10"
         android:fontFamily="@font/semibold"
         android:hint="@string/hint_usuario"
@@ -66,19 +72,19 @@
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/colorHolder"
         android:textSize="16sp"
-        android:background="@drawable/background_edittext"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
+        app:layout_constraintVertical_bias="0.05"
+        android:background="@drawable/background_edittext"
         android:ems="10"
         android:fontFamily="@font/semibold"
         android:hint="@string/hint_contraseña"
@@ -86,9 +92,8 @@
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/colorHolder"
         android:textSize="16sp"
-        android:background="@drawable/background_edittext"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
@@ -97,63 +102,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
+        app:layout_constraintVertical_bias="0.05"
         android:fontFamily="@font/medium"
         android:text="@string/olvidastecontra"
         android:textColor="@color/colorNegrita"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="32dp"
+        app:layout_constraintVertical_bias="0.05"
+        android:background="@drawable/button_registrar"
         android:fontFamily="@font/semibold"
         android:text="@string/bttminiciar"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:background="@drawable/button_registrar"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="178dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/medium"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        android:text="@string/nocuenta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button2"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="50dp"
-        android:fontFamily="@font/medium"
-        android:text="@string/registrate"
-        android:textColor="@color/colorNegrita"
-        android:textSize="14sp"
-        android:background="@android:color/transparent"
-        android:padding="0dp"
-        android:textAllCaps="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <!-- TextView dentro del LinearLayout -->
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/medium"
+            android:text="@string/nocuenta"
+            android:textColor="@color/colorNegrita"
+            android:textSize="14sp" />
+
+        <!-- Button dentro del LinearLayout -->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/medium"
+            android:text="@string/registrate"
+            android:textAllCaps="false"
+            android:textColor="@color/colorNegrita"
+            android:textSize="14sp"
+            android:layout_marginStart="36dp"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

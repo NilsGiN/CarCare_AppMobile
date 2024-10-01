@@ -1,6 +1,6 @@
 <resources>
+    <string name="app_name">TestApp</string>
     <!-- Login -->
-    <string name="app_name">Prueba1</string>
     <string name="iniciosesion">Inicio Sesión</string>
     <string name="bienvenida">Bienvenido a CarCare</string>
     <string name="hint_usuario">Usuario</string>
@@ -19,7 +19,9 @@
     <!-- Main -->
     <string name="titulo_main">Mis autos</string>
     <string name="placa">XXX-XXX</string>
-    <string name="caracteristicas">Automatico/Mercedes Beans/EQE</string>
+    <string name="sistemacarro">Automatico||</string>
+    <string name="marca">Mercedes Beans||</string>
+    <string name="modelo">EQE</string>
     <string name="ver">Ver</string>
     <string name="descripcion_todoterreno">Imagen de un todoterreno</string>
     <string name="descripcion_coche">Imagen de un coche</string>
@@ -34,19 +36,20 @@
     <string name="correas">Correas y cadenas</string>
     <string name="bujias">Bujías</string>
     <string name="neumaticos">Neumáticos</string>
+    <string name="transmision">Sist. de Transmisión</string>
+    <string name="electrico">Sistema Eléctrico</string>
     <string name="bttmregistrarmanten">Registrar mantenimiento</string>
 
     <!-- Registro mantenimiento -->
-    <string name="registrar_mantenimiento">Regístrar mantenimiento</string>
+    <string name="registrar_mantenimiento">Registrar mantenimiento</string>
     <string name="tipo_mantenimiento">Tipo de mantenimiento</string>
+    <string name="mantenimiento">Mantenimiento</string>
     <string name="fecha_mantenimiento">Fecha de mantenimiento</string>
     <string name="Kilometraje">Kilometraje</string>
     <string name="Kilometrajec">Kilometraje actual del mantenimiento</string>
     <string name="Fecha_proximo_mantenimiento">Fecha del próximo mantenimiento</string>
     <string name="Notas">Notas</string>
     <string name="Notasc">Escriba sus notas, qué se hizo y cómo </string>
-    <string name="hint_botonregresar">regreso</string>
-    <string name="desc_botonregresar">Este boton sirve de regreso</string>
     <string name="ejm_fecha">9/10/2024</string>
     <string name="ejm_kilometraje">Introdusca su kilometraje</string>
     <string name="hint_dato">Escribe aqui...</string>

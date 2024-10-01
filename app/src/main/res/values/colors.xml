@@ -10,5 +10,6 @@
     <color name="colorGris">#EBECEDFF</color>
     <color name="textColorHint">#52040415</color>
     <color name="backgroundTint">#EAEBEC</color>
+    <color name="text_mantenimientos">#2C796E</color>
 
 </resources>
