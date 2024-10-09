@@ -82,13 +82,13 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/semibold"
-        android:text="@string/fecha_mantenimiento"
+        android:text="@string/Fecha_proximo_mantenimiento"
         android:textAlignment="textStart"
         android:textColor="@color/colorNegrita"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/Kilometraje" />
 
     <TextView
         android:id="@+id/textView12"
@@ -103,7 +103,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText4" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_prox_mantenimiento" />
 
     <TextView
         android:id="@+id/textView11"
@@ -132,7 +132,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_mantenimiento" />
 
     <TextView
         android:id="@+id/TextView13"
@@ -151,7 +151,7 @@
 
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/Fecha_mantenimiento"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -162,7 +162,9 @@
         android:ems="10"
         android:fontFamily="@font/semibold"
         android:hint="@string/ejm_fecha"
-        android:inputType="date"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/textColorHint"
         android:textSize="14sp"
@@ -171,7 +173,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/Fecha_prox_mantenimiento"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -182,7 +184,9 @@
         android:ems="10"
         android:fontFamily="@font/semibold"
         android:hint='@string/ejm_fecha'
-        android:inputType="text"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/textColorHint"
         android:textSize="14sp"
@@ -191,7 +195,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView9" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/Kilometraje"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -202,7 +206,7 @@
         android:ems="10"
         android:fontFamily="@font/semibold"
         android:hint="@string/ejm_kilometraje"
-        android:inputType="text"
+        android:inputType="number"
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/textColorHint"
         android:textSize="14sp"
@@ -211,7 +215,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TextView13" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/Notas"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
@@ -234,7 +238,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/BtnRegistrar"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
@@ -249,6 +253,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintTop_toBottomOf="@+id/Notas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
