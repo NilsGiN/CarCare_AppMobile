@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ArrayAdapter;
 import android.content.Context;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,19 +25,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.prueba1.model.TipoMantenimiento;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RegistroMantenimientoActivity extends AppCompatActivity {
     private ImageButton atras_mosaico;
-    private EditText inputid_tipo;
     private EditText fecha_mantenimiento;
     private EditText fecha_prox_mantenimiento;
     private String dueDate="";
@@ -43,6 +48,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
     private EditText inputkm_prox;
     private EditText inputnotas;
     private Button btnRegistrar;
+    String id_tipo = "";
 
     private FirebaseFirestore firestore;
 
@@ -51,9 +57,61 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registro_mantenimiento);
+
+        // Referencia al Spinner
+        Spinner spinnerTipoMantenimiento = findViewById(R.id.Tipo);
+
+        // Lista de mantenimientos
+        List<TipoMantenimiento> tiposMantenimiento = new ArrayList<>();
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_1", "Aceite y Filtros"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_2", "Refrigeración"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_3", "Frenos"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_4", "Correas y Cadenas"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_5", "Bujías"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_6", "Neumáticos"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_7", "Sistema de Transmisión"));
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_8", "Sistema Eléctrico"));
+
+        // Adaptador para el Spinner
+        ArrayAdapter<TipoMantenimiento> adapter = new ArrayAdapter<TipoMantenimiento>(this, android.R.layout.simple_spinner_item, tiposMantenimiento) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                // Este es el layout que se muestra cuando el dropdown está cerrado
+                TextView label = (TextView) super.getView(position, convertView, parent);
+                label.setText(tiposMantenimiento.get(position).getNombre());
+                return label;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                // Este es el layout que se muestra en el dropdown
+                TextView label = (TextView) super.getDropDownView(position, convertView, parent);
+                label.setText(tiposMantenimiento.get(position).getNombre());
+                return label;
+            }
+        };
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTipoMantenimiento.setAdapter(adapter);
+
+        spinnerTipoMantenimiento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                TipoMantenimiento tipoSeleccionado = (TipoMantenimiento) parentView.getItemAtPosition(position);
+                String id_tipoSeleccionado = tipoSeleccionado.getId_tipo();
+                String nombreSeleccionado = tipoSeleccionado.getNombre();
+                id_tipo = id_tipoSeleccionado;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Maneja el caso en que no se seleccione nada
+            }
+        });
+
+        // Para BD
         firestore = FirebaseFirestore.getInstance();
 
-        inputid_tipo = findViewById(R.id.Tipo);
         inputkm_actual = findViewById(R.id.Kim_actual);
         inputkm_prox = findViewById(R.id.Kim_prox);
         inputnotas = findViewById(R.id.Notas);
@@ -72,7 +130,6 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id_tipo = inputid_tipo.getText().toString();
                 String km_actual = inputkm_actual.getText().toString();
                 String km_prox = inputkm_prox.getText().toString();
                 String notas = inputnotas.getText().toString();
