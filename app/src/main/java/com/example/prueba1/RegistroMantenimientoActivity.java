@@ -59,7 +59,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_mantenimiento);
 
         // Referencia al Spinner
-        Spinner spinnerTipoMantenimiento = findViewById(R.id.Tipo);
+        Spinner spinnerTipoMantenimiento = findViewById(R.id.Tipo   );
 
         // Lista de mantenimientos
         List<TipoMantenimiento> tiposMantenimiento = new ArrayList<>();
@@ -73,7 +73,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         tiposMantenimiento.add(new TipoMantenimiento("tipo_8", "Sistema Eléctrico"));
 
         // Adaptador para el Spinner
-        ArrayAdapter<TipoMantenimiento> adapter = new ArrayAdapter<TipoMantenimiento>(this, android.R.layout.simple_spinner_item, tiposMantenimiento) {
+        ArrayAdapter<TipoMantenimiento> adapter = new ArrayAdapter<TipoMantenimiento>(this, R.layout.spinner_item, tiposMantenimiento) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 // Este es el layout que se muestra cuando el dropdown está cerrado
@@ -90,7 +90,6 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
                 return label;
             }
         };
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTipoMantenimiento.setAdapter(adapter);
 
