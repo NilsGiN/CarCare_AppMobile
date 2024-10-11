@@ -34,12 +34,13 @@ import java.util.Map;
 
 public class RegistroMantenimientoActivity extends AppCompatActivity {
     private ImageButton atras_mosaico;
+    private EditText inputid_tipo;
     private EditText fecha_mantenimiento;
     private EditText fecha_prox_mantenimiento;
     private String dueDate="";
     private String nextdueDate="";
-
-    private EditText inputkilometraje;
+    private EditText inputkm_actual;
+    private EditText inputkm_prox;
     private EditText inputnotas;
     private Button btnRegistrar;
 
@@ -52,7 +53,9 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro_mantenimiento);
         firestore = FirebaseFirestore.getInstance();
 
-        inputkilometraje = findViewById(R.id.Kilometraje);
+        inputid_tipo = findViewById(R.id.Tipo);
+        inputkm_actual = findViewById(R.id.Kim_actual);
+        inputkm_prox = findViewById(R.id.Kim_prox);
         inputnotas = findViewById(R.id.Notas);
 
         // Inicializacion de boton para volver a pantalla anterior
@@ -69,14 +72,18 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String kilometraje = inputkilometraje.getText().toString();
+                String id_tipo = inputid_tipo.getText().toString();
+                String km_actual = inputkm_actual.getText().toString();
+                String km_prox = inputkm_prox.getText().toString();
                 String notas = inputnotas.getText().toString();
-                if(dueDate.isEmpty() || nextdueDate.isEmpty() || kilometraje.isEmpty() || notas.isEmpty()){
+                if(id_tipo.isEmpty() || dueDate.isEmpty() || nextdueDate.isEmpty() || km_actual.isEmpty() || km_prox.isEmpty() || notas.isEmpty()){
                     Toast.makeText(RegistroMantenimientoActivity.this, "Todos los campos son obligatorios",Toast.LENGTH_SHORT).show();
                 }else{
                     Map<String,Object> MantenimientoMap = new HashMap<>();
+                    MantenimientoMap.put("id_tipo",id_tipo);
                     MantenimientoMap.put("fecha",dueDate);
-                    MantenimientoMap.put("kilometraje",kilometraje);
+                    MantenimientoMap.put("km_actual",km_actual);
+                    MantenimientoMap.put("km_prox",km_prox);
                     MantenimientoMap.put("fecha_prox",nextdueDate);
                     MantenimientoMap.put("notas",notas);
                     /* taskMap.put("due",dueDate);

@@ -11,5 +11,6 @@
     <color name="textColorHint">#52040415</color>
     <color name="backgroundTint">#EAEBEC</color>
     <color name="text_mantenimientos">#2C796E</color>
+    <color name="text_historial">#08B199</color>
 
 </resources>

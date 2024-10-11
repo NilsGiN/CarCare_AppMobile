@@ -65,7 +65,6 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.02"
         android:layout_marginStart="32dp"
         android:fontFamily="@font/semibold"
         android:text="@string/fecha_mantenimiento"
@@ -73,51 +72,40 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/Tipo"
+        app:layout_constraintVertical_bias="0.02"/>
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/semibold"
         android:text="@string/Fecha_proximo_mantenimiento"
         android:textAlignment="textStart"
         android:textColor="@color/colorNegrita"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Kilometraje" />
+        app:layout_constraintTop_toBottomOf="@+id/Kilometraje"
+        app:layout_constraintVertical_bias="0.02"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
         android:fontFamily="@font/semibold"
         android:text="@string/Notas"
         android:textAlignment="textStart"
         android:textColor="@color/colorNegrita"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_prox_mantenimiento" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/semibold"
-        android:text="@string/Notasc"
-        android:textAlignment="textStart"
-        android:textColor="@color/textColorHint"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_prox_mantenimiento"
+        app:layout_constraintVertical_bias="0.02" />
 
     <TextView
         android:id="@+id/textView8"
@@ -125,33 +113,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="190dp"
         android:fontFamily="@font/semibold"
         android:text="@string/Kilometraje"
         android:textAlignment="textStart"
         android:textColor="@color/colorNegrita"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Fecha_mantenimiento" />
-
-    <TextView
-        android:id="@+id/TextView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:fontFamily="@font/semibold"
-        android:text="@string/Kilometrajec"
-        android:textAlignment="textStart"
-        android:textColor="@color/textColorHint"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView8" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/Fecha_mantenimiento"
+        app:layout_constraintVertical_bias="0.02" />
 
     <EditText
-        android:id="@+id/Fecha_mantenimiento"
+        android:id="@+id/Tipo"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -161,63 +136,120 @@
         android:backgroundTint="@color/backgroundTint"
         android:ems="10"
         android:fontFamily="@font/semibold"
-        android:hint="@string/ejm_fecha"
-        android:inputType="none"
-        android:focusable="false"
-        android:clickable="true"
+        android:hint="@string/ejm_tipo"
+        android:inputType="text"
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/textColorHint"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.01"/>
+
+    <EditText
+        android:id="@+id/Fecha_mantenimiento"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="226dp"
+        android:autofillHints=""
+        android:background="@drawable/background_selecttext"
+        android:backgroundTint="@color/backgroundTint"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:fontFamily="@font/semibold"
+        android:hint="@string/ejm_fecha"
+        android:inputType="none"
+        android:textColor="@color/colorNegrita"
+        android:textColorHint="@color/textColorHint"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.01"/>
 
     <EditText
         android:id="@+id/Fecha_prox_mantenimiento"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="35dp"
         android:autofillHints=""
         android:background="@drawable/background_selecttext"
         android:backgroundTint="@color/backgroundTint"
+        android:clickable="true"
         android:ems="10"
+        android:focusable="false"
         android:fontFamily="@font/semibold"
         android:hint='@string/ejm_fecha'
         android:inputType="none"
-        android:focusable="false"
-        android:clickable="true"
         android:textColor="@color/colorNegrita"
         android:textColorHint="@color/textColorHint"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView9" />
+        app:layout_constraintTop_toBottomOf="@id/textView9"
+        app:layout_constraintVertical_bias="0.01" />
 
-    <EditText
+    <LinearLayout
         android:id="@+id/Kilometraje"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:autofillHints=""
-        android:background="@drawable/background_selecttext"
-        android:backgroundTint="@color/backgroundTint"
-        android:ems="10"
-        android:fontFamily="@font/semibold"
-        android:hint="@string/ejm_kilometraje"
-        android:inputType="number"
-        android:textColor="@color/colorNegrita"
-        android:textColorHint="@color/textColorHint"
-        android:textSize="14sp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.01" >
+
+        <EditText
+            android:id="@+id/Kim_actual"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/background_selecttext"
+            android:backgroundTint="@color/backgroundTint"
+            android:ems="10"
+            android:fontFamily="@font/semibold"
+            android:hint="@string/kilo_actual"
+            android:inputType="number"
+            android:textColor="@color/colorNegrita"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="14sp"
+            android:layout_marginEnd="10dp" />
+
+        <EditText
+            android:id="@+id/Kim_prox"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@drawable/background_selecttext"
+            android:backgroundTint="@color/backgroundTint"
+            android:ems="10"
+            android:fontFamily="@font/semibold"
+            android:hint="@string/kilo_prox"
+            android:inputType="number"
+            android:textColor="@color/colorNegrita"
+            android:textColorHint="@color/textColorHint"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/Notas"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:autofillHints=""
@@ -233,9 +265,11 @@
         android:textColorHint="@color/textColorHint"
         android:textDirection="anyRtl"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
         android:id="@+id/BtnRegistrar"
@@ -243,7 +277,6 @@
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintVertical_bias="0.3"
         android:background="@drawable/button_registrar"
         android:fontFamily="@font/semibold"
         android:text="@string/bttmregistrar"
@@ -253,6 +286,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Notas" />
+        app:layout_constraintTop_toBottomOf="@+id/Notas"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
