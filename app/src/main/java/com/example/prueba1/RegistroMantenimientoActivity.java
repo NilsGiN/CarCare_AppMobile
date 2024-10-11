@@ -163,6 +163,9 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
             }
         }, year, month, day);
 
+        // Establecer la fecha mínima como la fecha actual
+        datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+
         datePickerDialog.show();
     }
 }
