@@ -1,4 +1,4 @@
-package com.example.prueba1;
+package com.example.prueba1.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.prueba1.R;
 
 public class MosaicoActivity extends AppCompatActivity {
     private Button registrar_mantenimiento;
@@ -46,7 +48,7 @@ public class MosaicoActivity extends AppCompatActivity {
         registrar_mantenimiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MosaicoActivity.this,RegistroMantenimientoActivity.class);
+                Intent intent = new Intent(MosaicoActivity.this, RegistroMantenimientoActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,7 +57,7 @@ public class MosaicoActivity extends AppCompatActivity {
         atras_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MosaicoActivity.this,MainActivity.class);
+                Intent intent = new Intent(MosaicoActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

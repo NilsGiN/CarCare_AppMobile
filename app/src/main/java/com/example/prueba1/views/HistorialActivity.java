@@ -1,4 +1,4 @@
-package com.example.prueba1;
+package com.example.prueba1.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.prueba1.adapter.MantenimientoAdapter;
+import com.example.prueba1.R;
+import com.example.prueba1.presenters.MantenimientoAdapter;
 import com.example.prueba1.model.Mantenimiento;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.Firebase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 

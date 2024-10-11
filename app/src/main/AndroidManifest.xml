@@ -13,22 +13,22 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".HistorialActivity"
+            android:name=".views.HistorialActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroMantenimientoActivity"
+            android:name=".views.RegistroMantenimientoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistroActivity"
+            android:name=".views.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".MosaicoActivity"
+            android:name=".views.MosaicoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

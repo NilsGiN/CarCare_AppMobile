@@ -1,10 +1,8 @@
-package com.example.prueba1.adapter;
+package com.example.prueba1.presenters;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
