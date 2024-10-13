@@ -44,6 +44,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
     private String nextdueDate="";
     private EditText inputkm_actual;
     private EditText inputkm_prox;
+    private EditText inputcosto;
     private EditText inputnotas;
     private Button btnRegistrar;
     String id_tipo = "";
@@ -112,6 +113,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
         inputkm_actual = findViewById(R.id.Kim_actual);
         inputkm_prox = findViewById(R.id.Kim_prox);
         inputnotas = findViewById(R.id.Notas);
+        inputcosto = findViewById(R.id.Costo);
 
         // Inicializacion de boton para volver a pantalla anterior
         atras_mosaico = findViewById(R.id.Atras_mosaico);
@@ -129,16 +131,18 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String km_actual = inputkm_actual.getText().toString();
                 String km_prox = inputkm_prox.getText().toString();
+                String costo = inputcosto.getText().toString();
                 String notas = inputnotas.getText().toString();
-                if(id_tipo.isEmpty() || dueDate.isEmpty() || nextdueDate.isEmpty() || km_actual.isEmpty() || km_prox.isEmpty() || notas.isEmpty()){
+                if(id_tipo.isEmpty() || dueDate.isEmpty() || nextdueDate.isEmpty() || km_actual.isEmpty() || km_prox.isEmpty() || costo.isEmpty() || notas.isEmpty()){
                     Toast.makeText(RegistroMantenimientoActivity.this, "Todos los campos son obligatorios",Toast.LENGTH_SHORT).show();
                 }else{
                     Map<String,Object> MantenimientoMap = new HashMap<>();
                     MantenimientoMap.put("id_tipo",id_tipo);
                     MantenimientoMap.put("fecha",dueDate);
+                    MantenimientoMap.put("fecha_prox",nextdueDate);
                     MantenimientoMap.put("km_actual",km_actual);
                     MantenimientoMap.put("km_prox",km_prox);
-                    MantenimientoMap.put("fecha_prox",nextdueDate);
+                    MantenimientoMap.put("costo",costo);
                     MantenimientoMap.put("notas",notas);
                     /* taskMap.put("due",dueDate);
                     taskMap.put("time",time);

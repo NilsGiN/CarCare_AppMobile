@@ -31,6 +31,7 @@ public class MantenimientoAdapter extends FirestoreRecyclerAdapter<Mantenimiento
         viewHolder.fecha_prox.setText(mantenimiento.getFecha_prox());
         viewHolder.km_actual.setText(mantenimiento.getKm_actual());
         viewHolder.km_prox.setText(mantenimiento.getKm_prox());
+        viewHolder.costo.setText(mantenimiento.getCosto());
         viewHolder.notas.setText(mantenimiento.getNotas());
     }
 
@@ -42,7 +43,7 @@ public class MantenimientoAdapter extends FirestoreRecyclerAdapter<Mantenimiento
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView fecha_actual, fecha_prox, km_actual, km_prox, notas;
+        TextView fecha_actual, fecha_prox, km_actual, km_prox, costo, notas;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -50,6 +51,7 @@ public class MantenimientoAdapter extends FirestoreRecyclerAdapter<Mantenimiento
             fecha_prox = itemView.findViewById(R.id.fecha_prox);
             km_actual = itemView.findViewById(R.id.km_actual);
             km_prox = itemView.findViewById(R.id.km_prox);
+            costo = itemView.findViewById(R.id.costo);
             notas = itemView.findViewById(R.id.notas);
         }
     }
