@@ -136,13 +136,18 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
                 if(id_tipo.isEmpty() || dueDate.isEmpty() || nextdueDate.isEmpty() || km_actual.isEmpty() || km_prox.isEmpty() || costo.isEmpty() || notas.isEmpty()){
                     Toast.makeText(RegistroMantenimientoActivity.this, "Todos los campos son obligatorios",Toast.LENGTH_SHORT).show();
                 }else{
+                    // Formatear los valores antes de guardarlos
+                    String km_actual_formatted = km_actual + " km";
+                    String km_prox_formatted = km_prox + " km";
+                    String costo_formatted = "S./ " + costo;
+
                     Map<String,Object> MantenimientoMap = new HashMap<>();
                     MantenimientoMap.put("id_tipo",id_tipo);
                     MantenimientoMap.put("fecha",dueDate);
                     MantenimientoMap.put("fecha_prox",nextdueDate);
-                    MantenimientoMap.put("km_actual",km_actual);
-                    MantenimientoMap.put("km_prox",km_prox);
-                    MantenimientoMap.put("costo",costo);
+                    MantenimientoMap.put("km_actual",km_actual_formatted);
+                    MantenimientoMap.put("km_prox",km_prox_formatted);
+                    MantenimientoMap.put("costo",costo_formatted);
                     MantenimientoMap.put("notas",notas);
                     /* taskMap.put("due",dueDate);
                     taskMap.put("time",time);
