@@ -3,7 +3,7 @@ package com.example.prueba1.views;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,33 +13,25 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.prueba1.R;
 
-public class MainActivity extends AppCompatActivity {
-    private Button ir_mosaico;
-    private Button ir_registro_car;
+public class RegistroCarActivity extends AppCompatActivity {
+    private ImageButton atras_main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registro_car);
 
-        ir_mosaico = findViewById(R.id.Ir_mosaico);
-        ir_registro_car = findViewById(R.id.Plus);
-
-        ir_mosaico.setOnClickListener(new View.OnClickListener() {
+        // Inicializacion de boton para volver a pantalla anterior
+        atras_main = findViewById(R.id.Atras_main);
+        atras_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MosaicoActivity.class);
+                Intent intent = new Intent(RegistroCarActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
-        ir_registro_car.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegistroCarActivity.class);
-                startActivity(intent);
-            }
-        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.RegistroMantenimientoActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_bias="0.02"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/Atras_main"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_flecha"
+            app:srcCompat="@drawable/arrow"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/semibold"
+            android:text="@string/registrar_car"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorNegrita"
+            android:textSize="24sp"
+            tools:ignore="TextSizeCheck" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Modelo_marca"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.02">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:text="@string/marca_man"
+                android:textColor="@color/colorNegrita"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/Marca"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints=""
+                android:background="@drawable/background_selecttext"
+                android:backgroundTint="@color/backgroundTint"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="@font/semibold"
+                android:hint="@string/hint_marca"
+                android:inputType="none"
+                android:textColor="@color/colorNegrita"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/semibold"
+                android:text="@string/modelo_man"
+                android:textColor="@color/colorNegrita"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/Modelo"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:autofillHints=""
+                android:background="@drawable/background_selecttext"
+                android:backgroundTint="@color/backgroundTint"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="@font/semibold"
+                android:hint='@string/hint_modelo'
+                android:inputType="none"
+                android:textColor="@color/colorNegrita"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Placa_año"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:gravity="start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Modelo_marca"
+        app:layout_constraintVertical_bias="0.02">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:text="@string/placa_man"
+                android:textColor="@color/colorNegrita"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/Placa"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints=""
+                android:background="@drawable/background_selecttext"
+                android:backgroundTint="@color/backgroundTint"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="@font/semibold"
+                android:hint="@string/hint_placa"
+                android:inputType="none"
+                android:textColor="@color/colorNegrita"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/semibold"
+                android:text="@string/año"
+                android:textColor="@color/colorNegrita"
+                android:textSize="16sp" />
+            <EditText
+                android:id="@+id/Año"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:autofillHints=""
+                android:background="@drawable/background_selecttext"
+                android:backgroundTint="@color/backgroundTint"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="@font/semibold"
+                android:hint='@string/hint_año'
+                android:inputType="none"
+                android:textColor="@color/colorNegrita"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:fontFamily="@font/semibold"
+        android:text="@string/sistema"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorNegrita"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Placa_año"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        android:id="@+id/Sistema"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints=""
+        android:background="@drawable/background_selecttext"
+        android:backgroundTint="@color/backgroundTint"
+        android:ems="10"
+        android:fontFamily="@font/semibold"
+        android:hint="@string/hint_sistema"
+        android:inputType="numberDecimal"
+        android:maxLength="7"
+        android:textColor="@color/colorNegrita"
+        android:textColorHint="@color/textColorHint"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <Button
+        android:id="@+id/BtnRegistrar"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_registrar"
+        android:fontFamily="@font/semibold"
+        android:text="@string/bttmregistrar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Sistema"
+        app:layout_constraintVertical_bias="0.88" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

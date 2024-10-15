@@ -25,7 +25,20 @@
     <string name="ver">Ver</string>
     <string name="descripcion_todoterreno">Imagen de un todoterreno</string>
     <string name="descripcion_coche">Imagen de un coche</string>
+    <string name="plus_button_description">Agregar un nuevo registro de carro</string>
 
+    <!-- Registro car -->
+    <string name="registrar_car">Registrar auto</string>
+    <string name="placa_man">Placa</string>
+    <string name="año">Año</string>
+    <string name="marca_man">Marca</string>
+    <string name="modelo_man">Modelo</string>
+    <string name="sistema">Sistema</string>
+    <string name="hint_placa">Ejemplo: ABC-123</string>
+    <string name="hint_año">Año de modelo</string>
+    <string name="hint_modelo">Ejm: Corolla, Civic</string>
+    <string name="hint_marca">Ejm: Toyota, Honda</string>
+    <string name="hint_sistema">Automático o mecánico</string>
 
     <!-- Mosaico -->
     <string name="descripcion_flecha">Flecha que indica la dirección hacia atras</string>
