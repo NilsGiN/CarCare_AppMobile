@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    app:cardCornerRadius="12dp" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Fondo de la imagen -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car_back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/Ir_mosaico"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_registrar"
+                    android:fontFamily="@font/semibold"
+                    android:text="@string/titulo_mante"
+                    android:textAllCaps="false"
+                    android:textColor="@color/background"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/button_borde"
+                    android:fontFamily="@font/semibold"
+                    android:text="@string/ver"
+                    android:textAllCaps="false"
+                    android:textColor="@color/background"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutFechas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:layout_gravity="end"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/fecha_actual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/medium"
+                    android:letterSpacing="0.05"
+                    android:text="Toyota"
+                    android:textColor="@color/text_km_cardview"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textColor="@color/text_km_cardview"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/medium" />
+
+                <TextView
+                    android:id="@+id/fecha_prox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Corolla"
+                    android:textColor="@color/text_km_cardview"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/medium"
+                    android:letterSpacing="0.05" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textColor="@color/text_km_cardview"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/medium" />
+
+                <TextView
+                    android:id="@+id/sistema"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Automático"
+                    android:textColor="@color/text_km_cardview"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/medium"
+                    android:letterSpacing="0.05" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/notas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="10dp"
+                android:text="XXX-XXX"
+                android:textSize="25sp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/background"
+                android:drawablePadding="5dp"/>
+        </LinearLayout>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
