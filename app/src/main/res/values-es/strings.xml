@@ -34,7 +34,7 @@
     <string name="marca_man">Marca</string>
     <string name="modelo_man">Modelo</string>
     <string name="sistema">Sistema</string>
-    <string name="hint_placa">Ejemplo: ABC-123</string>
+    <string name="hint_placa">Ejemplo: ABC123</string>
     <string name="hint_año">Año de modelo</string>
     <string name="hint_modelo">Ejm: Corolla, Civic</string>
     <string name="hint_marca">Ejm: Toyota, Honda</string>
