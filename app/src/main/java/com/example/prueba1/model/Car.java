@@ -1,14 +1,15 @@
 package com.example.prueba1.model;
 
 public class Car {
-    String marca, modelo, placa, anio;
+    String marca, modelo, placa, anio, sistema;
     public Car(){}
 
-    public Car(String marca, String modelo, String placa, String anio) {
+    public Car(String marca, String modelo, String placa, String anio, String sistema) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.anio = anio;
+        this.sistema = sistema;
     }
 
     public String getMarca() {
@@ -41,5 +42,13 @@ public class Car {
 
     public void setAnio(String anio) {
         this.anio = anio;
+    }
+
+    public String getSistema() {
+        return sistema;
+    }
+
+    public void setSistema(String sistema) {
+        this.sistema = sistema;
     }
 }

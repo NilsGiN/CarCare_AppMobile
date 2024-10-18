@@ -157,7 +157,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(RegistroMantenimientoActivity.this,"Mantenimiento guardado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistroMantenimientoActivity.this,"Mantenimiento registrado", Toast.LENGTH_SHORT).show();
                                 finish(); // Cierra la actividad después de guardar
                             }else{
                                 //Toast.makeText(RegistroMantenimientoActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();

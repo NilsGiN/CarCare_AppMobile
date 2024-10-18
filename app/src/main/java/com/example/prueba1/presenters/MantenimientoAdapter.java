@@ -13,7 +13,6 @@ import com.example.prueba1.model.Mantenimiento;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-
 public class MantenimientoAdapter extends FirestoreRecyclerAdapter<Mantenimiento, MantenimientoAdapter.ViewHolder> {
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link

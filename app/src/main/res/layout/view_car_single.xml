@@ -67,7 +67,7 @@
                 android:gravity="center_vertical" >
 
                 <TextView
-                    android:id="@+id/fecha_actual"
+                    android:id="@+id/marca"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -86,7 +86,7 @@
                     android:fontFamily="@font/medium" />
 
                 <TextView
-                    android:id="@+id/fecha_prox"
+                    android:id="@+id/modelo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -118,7 +118,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/notas"
+                android:id="@+id/placa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"

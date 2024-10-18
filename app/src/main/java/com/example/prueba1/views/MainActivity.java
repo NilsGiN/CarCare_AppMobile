@@ -4,28 +4,53 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prueba1.R;
+import com.example.prueba1.model.Car;
+import com.example.prueba1.model.Mantenimiento;
+import com.example.prueba1.presenters.CarAdapter;
+import com.example.prueba1.presenters.MantenimientoAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
     private Button ir_mosaico;
     private Button ir_registro_car;
+    RecyclerView cRecycler;
+    CarAdapter cAdapter;
+    FirebaseFirestore mFirestore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        ir_mosaico = findViewById(R.id.Ir_mosaico);
-        ir_registro_car = findViewById(R.id.Plus);
+        // Inicializar Firestore y RecyclerView
+        mFirestore = FirebaseFirestore.getInstance();
+        cRecycler = findViewById(R.id.Recyclerview2);
+        cRecycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
-        ir_mosaico.setOnClickListener(new View.OnClickListener() {
+        // Configurar consulta de Firestore
+        Query query = mFirestore.collection("Vehiculo");
+        FirestoreRecyclerOptions<Car> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Car>().setQuery(query, Car.class).build();
+
+        // Inicializar adaptador
+        cAdapter = new CarAdapter(firestoreRecyclerOptions);
+        cAdapter.notifyDataSetChanged();
+        cRecycler.setAdapter(cAdapter);
+
+        cAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MosaicoActivity.class);
@@ -33,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ir_registro_car = findViewById(R.id.Plus);
         ir_registro_car.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,5 +72,17 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        cAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        cAdapter.stopListening();
     }
 }

@@ -22,137 +22,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/carCard"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Recyclerview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/colorStart"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView13"
-        app:layout_constraintVertical_bias="0.05">
-
-        <!-- ConstraintLayout dentro del CardView -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp" >
-
-            <LinearLayout
-                android:id="@+id/auto_placa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:fontFamily="@font/medium"
-                    android:text="@string/placa"
-                    android:textColor="@color/white"
-                    android:textSize="24sp" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="50dp"
-                    android:contentDescription="@string/descripcion_coche"
-                    app:srcCompat="@drawable/coche" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/carro_detalles"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/auto_placa"
-                app:layout_constraintVertical_bias="0">
-
-                <TextView
-                    android:id="@+id/sistemacarro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/regular"
-                    android:text="@string/sistemacarro"
-                    android:textColor="@color/colorHolder"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/marca"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/regular"
-                    android:text="@string/marca"
-                    android:textColor="@color/colorHolder"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/modelo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/regular"
-                    android:text="@string/modelo"
-                    android:textColor="@color/colorHolder"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/botones"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/carro_detalles"
-                app:layout_constraintVertical_bias="0.5">
-
-                <Button
-                        android:id="@+id/Ir_mosaico"
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_registrar"
-                        android:fontFamily="@font/semibold"
-                        android:text="@string/titulo_mante"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:background="@drawable/button_borde"
-                    android:fontFamily="@font/semibold"
-                    android:text="@string/ver"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.05" />
 
     <Button
         android:id="@+id/Plus"
