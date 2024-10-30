@@ -44,4 +44,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
     implementation ("com.firebaseui:firebase-ui-firestore:8.0.2")
+    // Agregar estas nuevas dependencias
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
 }
