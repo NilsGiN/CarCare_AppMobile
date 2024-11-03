@@ -7,12 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.prueba1.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextUsername, editTextPassword;
     private Button buttonRegister, buttonLogin;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
@@ -33,20 +29,16 @@ public class RegistroActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registro);
 
-        // Inicializar Firebase Auth y Firestore
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        // Inicializar vistas usando los IDs existentes
-        editTextEmail = findViewById(R.id.editTextText);
+        editTextUsername = findViewById(R.id.editTextText);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonRegister = findViewById(R.id.button);
         buttonLogin = findViewById(R.id.button2);
 
-        // Configurar botón de registro
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,35 +46,21 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-        // Configurar botón para ir a login
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish(); // Volver a la actividad de login
             }
         });
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 
     private void registerUser() {
-        String email = editTextEmail.getText().toString().trim();
+        String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        // Validaciones
-        if (email.isEmpty()) {
-            editTextEmail.setError("El correo es requerido");
-            editTextEmail.requestFocus();
-            return;
-        }
-
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextEmail.setError("Ingrese un correo válido");
-            editTextEmail.requestFocus();
+        if (username.isEmpty()) {
+            editTextUsername.setError("El usuario es requerido");
+            editTextUsername.requestFocus();
             return;
         }
 
@@ -98,15 +76,19 @@ public class RegistroActivity extends AppCompatActivity {
             return;
         }
 
-        // Registrar usuario en Firebase Auth
+        // Email ficticio, misma logica que LoginActivity.java
+        String email = username + "@gmail.com";
+
+        // Registrar usuario
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Guardar información adicional del usuario en Firestore
+                            // Guardar información en firestore
                             String userId = mAuth.getCurrentUser().getUid();
                             Map<String, Object> user = new HashMap<>();
+                            user.put("username", username);
                             user.put("email", email);
                             user.put("createdAt", System.currentTimeMillis());
 
@@ -118,7 +100,6 @@ public class RegistroActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(RegistroActivity.this,
                                                         "Registro exitoso", Toast.LENGTH_SHORT).show();
-                                                // Ir a MainActivity
                                                 Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                 startActivity(intent);
