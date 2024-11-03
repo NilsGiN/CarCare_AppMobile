@@ -15,12 +15,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextUsername, editTextPassword;
     private Button buttonLogin, buttonRegister;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-        editTextEmail = findViewById(R.id.editTextText);
+        editTextUsername = findViewById(R.id.editTextText);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonLogin = findViewById(R.id.button);
         buttonRegister = findViewById(R.id.button2);
@@ -44,20 +47,18 @@ public class LoginActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Redirigir a la actividad de registro
-                Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(LoginActivity.this, RegistroActivity.class));
             }
         });
     }
 
     private void loginUser() {
-        String email = editTextEmail.getText().toString().trim();
+        String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if (email.isEmpty()) {
-            editTextEmail.setError("El correo es requerido");
-            editTextEmail.requestFocus();
+        if (username.isEmpty()) {
+            editTextUsername.setError("El usuario es requerido");
+            editTextUsername.requestFocus();
             return;
         }
 
@@ -67,19 +68,22 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        // Se usara un email "ficticio" en vista de que no encontramos una forma de hacerlo con usuarios directamente
+        String email = username + "@gmail.com";
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Login exitoso, redirigir a MainActivity
+                            // Login exitoso
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();
                         } else {
-                            // Si el login falla, mostrar un mensaje al usuario
-                            Toast.makeText(LoginActivity.this, "Error en el inicio de sesión: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "Usuario o contraseña incorrectos",
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });
