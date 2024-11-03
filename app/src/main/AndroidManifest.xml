@@ -12,38 +12,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
+
+        <activity
+            android:name=".views.InicioActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".views.RegistroCarActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.HistorialActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.RegistroMantenimientoActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
+
         <activity
             android:name=".views.RegistroActivity"
             android:exported="false" />
+
         <activity
             android:name=".views.MosaicoActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
