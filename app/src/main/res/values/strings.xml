@@ -18,6 +18,7 @@
 
     <!-- Main -->
     <string name="titulo_main">Mis autos</string>
+    <string name="carcare">CarCare</string>
     <string name="placa">XXX-XXX</string>
     <string name="sistemacarro">Automatico||</string>
     <string name="marca">Mercedes Beans||</string>
