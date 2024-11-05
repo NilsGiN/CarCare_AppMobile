@@ -19,11 +19,13 @@ import com.example.prueba1.model.Car;
 import com.example.prueba1.model.Mantenimiento;
 import com.example.prueba1.presenters.CarAdapter;
 import com.example.prueba1.presenters.MantenimientoAdapter;
+import com.example.prueba1.presenters.RecordatorioAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
+    private RecordatorioAdapter recordatorioAdapter;
     private Button ir_mosaico;
     private Button ir_registro_car;
     RecyclerView cRecycler;
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializar Firestore y RecyclerView
         mFirestore = FirebaseFirestore.getInstance();
+
+        // Inicializar MantenimientoReminderHelper y verificar mantenimientos
+        recordatorioAdapter = new RecordatorioAdapter();
+        recordatorioAdapter.verificarMantenimientosDeHoy(this);
+
         cRecycler = findViewById(R.id.Recyclerview2);
         cRecycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
