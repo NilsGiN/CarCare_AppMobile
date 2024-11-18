@@ -26,6 +26,7 @@ public class HistorialActivity extends AppCompatActivity {
     RecyclerView mRecycler;
     MantenimientoAdapter mAdapter;
     FirebaseFirestore mFirestore;
+//    String vehiculoPlaca = getIntent().getStringExtra("VEHICULO_PLACA");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,9 @@ public class HistorialActivity extends AppCompatActivity {
 
         TextView tipoId = findViewById(R.id.Tipo_id);
         String tipo = getIntent().getStringExtra("tipo_mantenimiento");
+        String carId = getIntent().getStringExtra("carId");
 
-        Query query = mFirestore.collection("Mantenimiento").whereEqualTo("id_tipo", tipo);
+        Query query = mFirestore.collection("Mantenimiento").whereEqualTo("id_tipo", tipo).whereEqualTo("carId", carId);
         FirestoreRecyclerOptions<Mantenimiento> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Mantenimiento>().setQuery(query, Mantenimiento.class).build();
 
         mAdapter = new MantenimientoAdapter(firestoreRecyclerOptions);

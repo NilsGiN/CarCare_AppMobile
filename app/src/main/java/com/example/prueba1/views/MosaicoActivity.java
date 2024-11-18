@@ -2,6 +2,7 @@ package com.example.prueba1.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,13 +18,24 @@ import com.example.prueba1.R;
 public class MosaicoActivity extends AppCompatActivity {
     private Button registrar_mantenimiento;
     private ImageButton atras_main;
+    private String carId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        Log.e("MainActivity", "Vehiculo placa: " + vehiculoPlaca);
+         carId = getIntent().getStringExtra("carId");
+
+        if(carId != null){
+            Log.d("FirebaseAuth", "carId nay" );
+            Log.d("FirebaseAuth", "carId " + carId);
+
+        }else{
+            Log.d("FirebaseAuth", "carId " + carId);
+
+        }
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_mosaico);
-
         // Referencia a los botones
         Button buttonAceites = findViewById(R.id.button_aceites);
         Button buttonRefrigeracion = findViewById(R.id.button_refrigeracion);
@@ -49,6 +61,14 @@ public class MosaicoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MosaicoActivity.this, RegistroMantenimientoActivity.class);
+                intent.putExtra("carId", carId);
+                //mi novio no me quiereeeeeeeeeeee :'( pq no me hace caso
+                //no me dice te amo
+                //no mira mi pantalla
+                // no le importo
+                //no me da besitos
+                //toca
+                //llorar
                 startActivity(intent);
             }
         });
@@ -74,6 +94,7 @@ public class MosaicoActivity extends AppCompatActivity {
         Intent intent = new Intent(MosaicoActivity.this, HistorialActivity.class);
         intent.putExtra("titulo_mantenimiento", titulo);
         intent.putExtra("tipo_mantenimiento", tipo);
+        intent.putExtra("carId", carId);
         startActivity(intent);
     }
 }

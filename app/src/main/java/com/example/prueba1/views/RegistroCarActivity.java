@@ -21,6 +21,8 @@ import com.example.prueba1.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -36,7 +38,9 @@ public class RegistroCarActivity extends AppCompatActivity {
     private EditText inputplaca;
     private EditText inputanio;
     private EditText inputsistema;
-
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    //FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+    String userId = firebaseAuth.getCurrentUser().getUid();
     private FirebaseFirestore firestore;
 
     @Override
@@ -105,6 +109,7 @@ public class RegistroCarActivity extends AppCompatActivity {
                     CarMap.put("placa",placa);
                     CarMap.put("anio",anio);
                     CarMap.put("sistema",sistema);
+                    CarMap.put("userId",userId);
                     /* taskMap.put("due",dueDate);
                     taskMap.put("time",time);
                     taskMap.put("status",0); */
@@ -114,7 +119,8 @@ public class RegistroCarActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DocumentReference> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(RegistroCarActivity.this,"Registro de auto guardado", Toast.LENGTH_SHORT).show();
-                                finish(); // Cierra la actividad después de guardar
+//                                finish(); // Cierra la actividad después de guardar
+                                startActivity(new Intent(RegistroCarActivity.this, MainActivity.class));
                             }else{
                                 //Toast.makeText(RegistroMantenimientoActivity.this,task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 String errorMessage = task.getException() != null ? task.getException().getMessage() : "Error desconocido";

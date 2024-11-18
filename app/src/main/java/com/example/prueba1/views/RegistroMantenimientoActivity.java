@@ -3,6 +3,7 @@ package com.example.prueba1.views;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -48,12 +49,22 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
     private EditText inputnotas;
     private Button btnRegistrar;
     String id_tipo = "";
+    private String carId;
 
     private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        carId = getIntent().getStringExtra("carId");
+
+        if(carId != null){
+            Log.d("FirebaseAuth", "carId " + carId);
+
+        }else{
+            Log.d("FirebaseAuth", "carId nay" );
+
+        }
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registro_mantenimiento);
 
@@ -142,6 +153,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
                     String costo_formatted = "S./ " + costo;
 
                     Map<String,Object> MantenimientoMap = new HashMap<>();
+                    MantenimientoMap.put("carId",carId);
                     MantenimientoMap.put("id_tipo",id_tipo);
                     MantenimientoMap.put("fecha",dueDate);
                     MantenimientoMap.put("fecha_prox",nextdueDate);
@@ -149,6 +161,8 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
                     MantenimientoMap.put("km_prox",km_prox_formatted);
                     MantenimientoMap.put("costo",costo_formatted);
                     MantenimientoMap.put("notas",notas);
+
+
                     /* taskMap.put("due",dueDate);
                     taskMap.put("time",time);
                     taskMap.put("status",0); */

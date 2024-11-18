@@ -1,15 +1,19 @@
 package com.example.prueba1.model;
 
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 public class Car {
-    String marca, modelo, placa, anio, sistema;
+    String marca, modelo, placa, anio, sistema, userId;
     public Car(){}
 
-    public Car(String marca, String modelo, String placa, String anio, String sistema) {
+
+    public Car(String marca, String modelo, String placa, String anio, String sistema, String userId) {
         this.marca = marca;
         this.modelo = modelo;
         this.placa = placa;
         this.anio = anio;
         this.sistema = sistema;
+        this.userId = userId;
     }
 
     public String getMarca() {
@@ -50,5 +54,13 @@ public class Car {
 
     public void setSistema(String sistema) {
         this.sistema = sistema;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

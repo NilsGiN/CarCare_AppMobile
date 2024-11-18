@@ -2,6 +2,7 @@ package com.example.prueba1.presenters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prueba1.R;
 import com.example.prueba1.model.Car;
+import com.example.prueba1.views.MainActivity;
 import com.example.prueba1.views.MosaicoActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHolder>
-                        implements View.OnClickListener {
+        implements View.OnClickListener {
     /**
      * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
      * FirestoreRecyclerOptions} for configuration options.
@@ -27,8 +29,10 @@ public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHol
      */
     private View.OnClickListener listener;
 
-    public CarAdapter(@NonNull FirestoreRecyclerOptions<Car> options) {
+    private Context context;
+    public CarAdapter(@NonNull FirestoreRecyclerOptions<Car> options, Context context) {
         super(options);
+        this.context = context;
     }
 
     @Override
@@ -37,6 +41,19 @@ public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHol
         viewHolder.marca.setText(car.getMarca());
         viewHolder.modelo.setText(car.getModelo());
         viewHolder.sistema.setText(car.getSistema());
+
+        // Obtener el ID del documento
+        String documentId = getSnapshots().getSnapshot(i).getId();
+
+
+        // Configurar el click listener para cada card
+        viewHolder.itemView.setOnClickListener(view -> {
+            // Crear un Intent para abrir la nueva actividad
+            Intent intent = new Intent(context, MosaicoActivity.class);
+            // Pasar el ID del documento a la nueva actividad
+            intent.putExtra("carId", documentId);
+            context.startActivity(intent);
+        });
     }
 
     @NonNull
