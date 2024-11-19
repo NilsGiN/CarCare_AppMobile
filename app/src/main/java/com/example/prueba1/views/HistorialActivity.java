@@ -55,6 +55,7 @@ public class HistorialActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistorialActivity.this, MosaicoActivity.class);
+                intent.putExtra("carId", carId);
                 startActivity(intent);
             }
         });
