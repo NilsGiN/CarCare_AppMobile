@@ -1,5 +1,6 @@
 package com.example.prueba1.presenters;
 
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,26 @@ public class MantenimientoAdapter extends FirestoreRecyclerAdapter<Mantenimiento
         viewHolder.km_prox.setText(mantenimiento.getKm_prox());
         viewHolder.costo.setText(mantenimiento.getCosto());
         viewHolder.notas.setText(mantenimiento.getNotas());
+
+        // Agregar LongClickListener para eliminar
+        viewHolder.itemView.setOnLongClickListener(v -> {
+            new AlertDialog.Builder(v.getContext())
+                    .setTitle("Eliminar mantenimiento")
+                    .setMessage("¿Está seguro de que desea eliminar este mantenimiento?")
+                    .setPositiveButton("Sí", (dialog, which) -> {
+                        // Eliminar el documento de Firestore
+                        getSnapshots().getSnapshot(i).getReference().delete()
+                                .addOnSuccessListener(aVoid -> {
+                                    // Opcional: Mostrar un mensaje de éxito
+                                })
+                                .addOnFailureListener(e -> {
+                                    // Opcional: Manejar errores
+                                });
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+            return true; // Indica que el evento fue manejado
+        });
     }
 
     @NonNull

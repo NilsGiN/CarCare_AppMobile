@@ -1,5 +1,6 @@
 package com.example.prueba1.presenters;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.example.prueba1.views.MainActivity;
 import com.example.prueba1.views.MosaicoActivity;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHolder>
         implements View.OnClickListener {
@@ -45,7 +47,6 @@ public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHol
         // Obtener el ID del documento
         String documentId = getSnapshots().getSnapshot(i).getId();
 
-
         // Configurar el click listener para cada card
         viewHolder.itemView.setOnClickListener(view -> {
             // Crear un Intent para abrir la nueva actividad
@@ -54,6 +55,38 @@ public class CarAdapter extends FirestoreRecyclerAdapter<Car, CarAdapter.ViewHol
             intent.putExtra("carId", documentId);
             context.startActivity(intent);
         });
+
+        // Configurar el long click listener para opciones de editar/eliminar
+        viewHolder.itemView.setOnLongClickListener(view -> {
+            // Crear un diálogo con opciones
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Opciones")
+                    .setItems(new CharSequence[]{"Eliminar"}, (dialog, which) -> {
+                        switch (which) {
+//                            case 0: // Editar
+//                                editarCar(documentId, car);
+//                                break;
+                            case 0: // Eliminar
+                                eliminarCar(documentId);
+                                break;
+                        }
+                    })
+                    .show();
+            return true; // Retornar true para indicar que el evento fue manejado
+        });
+    }
+
+    // Método para eliminar un vehículo
+    private void eliminarCar(String documentId) {
+        FirebaseFirestore.getInstance().collection("Vehiculo") // Cambia "cars" por el nombre de tu colección en Firestore
+                .document(documentId)
+                .delete()
+                .addOnSuccessListener(aVoid -> {
+                    Log.d("CarAdapter", "Vehículo eliminado con éxito");
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("CarAdapter", "Error al eliminar el vehículo", e);
+                });
     }
 
     @NonNull
