@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -20,15 +21,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.prueba1.R;
 import com.example.prueba1.model.Car;
 import com.example.prueba1.presenters.CarAdapter;
-import com.example.prueba1.presenters.RecordatorioAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser ;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
-    private RecordatorioAdapter recordatorioAdapter;
     private Button ir_registro_car;
     private ImageButton buttonLogout; // Botón de cierre de sesión
     RecyclerView cRecycler;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore mFirestore;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     FirebaseUser  currentUser ;
+    private TextView textViewRecordatorio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +53,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+        // Inicializar componentes
+        textViewRecordatorio = findViewById(R.id.text_view_recordatorio); // Inicializar el TextView
+
         // Inicializar Firestore y RecyclerView
         mFirestore = FirebaseFirestore.getInstance();
-
-        // Inicializar MantenimientoReminderHelper y verificar mantenimientos
-        recordatorioAdapter = new RecordatorioAdapter();
-        recordatorioAdapter.verificarMantenimientosDeHoy(this);
-
         cRecycler = findViewById(R.id.Recyclerview2);
         cRecycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
@@ -96,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Obtener los vehículos y luego los mantenimientos
+        obtenerVehiculosYMantenimientos(userId);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -113,5 +115,62 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         cAdapter.stopListening();
+    }
+
+    private void obtenerVehiculosYMantenimientos(String userId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Vehiculo")
+                .whereEqualTo("userId", userId)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (DocumentSnapshot document : task.getResult()) {
+                            String carId = document.getId();
+                            obtenerMantenimientosMasRecientesPorCarId(carId);
+                        }
+                    } else {
+                        Log.e("Firestore", "Error getting vehicles: ", task.getException());
+                    }
+                });
+    }
+
+    private void obtenerMantenimientosMasRecientesPorCarId(String carId) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Mantenimiento")
+                .whereEqualTo("carId", carId)
+                .orderBy("fecha", Query.Direction.DESCENDING)
+                .limit(1)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (!task.getResult().isEmpty()) {
+                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                            String fecha = document.getString("fecha");
+                            String idTipo = document.getString("id_tipo");
+                            obtenerTipoMantenimiento(idTipo, fecha);
+                        }
+                    } else {
+                        Log.e("Firestore", "Error getting maintenance documents: ", task.getException());
+                    }
+                });
+    }
+
+    private void obtenerTipoMantenimiento(String idTipo, String fecha) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Tipo_Mantenimiento")
+                .whereEqualTo("id", idTipo)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        if (!task.getResult().isEmpty()) {
+                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                            String tipo = document.getString("nombre");
+                            String recordatorio = "Tu último mantenimiento fue el " + fecha + " en " + tipo + ", no olvides hacer uno nuevo.";
+                            textViewRecordatorio.setText(recordatorio); // Establecer el texto en el TextView
+                        }
+                    } else {
+                        Log.e("Firestore", "Error getting Tipo_Mantenimiento: ", task.getException());
+                    }
+                });
     }
 }
