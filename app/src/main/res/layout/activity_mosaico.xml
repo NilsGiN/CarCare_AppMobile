@@ -44,6 +44,17 @@
             android:textSize="24sp"
             tools:ignore="TextSizeCheck" />
 
+        <ImageButton
+            android:id="@+id/button_todos"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="70dp"
+            android:padding="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descripcion_boton_todo"
+            app:srcCompat="@drawable/todo"
+            android:scaleType="fitCenter" />
+
     </LinearLayout>
 
     <GridLayout

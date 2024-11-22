@@ -45,6 +45,7 @@ public class MosaicoActivity extends AppCompatActivity {
         Button buttonNeumaticos = findViewById(R.id.button_neumaticos);
         Button buttonTransmision = findViewById(R.id.button_transmision);
         Button buttonElectrico = findViewById(R.id.button_electrico);
+        ImageButton buttonTodos = findViewById(R.id.button_todos);
 
         // Configurar el listener para abrir la nueva actividad
         buttonAceites.setOnClickListener(v -> abrirDetalleMantenimiento(buttonAceites.getText().toString(), "tipo_1"));
@@ -55,6 +56,7 @@ public class MosaicoActivity extends AppCompatActivity {
         buttonNeumaticos.setOnClickListener(v -> abrirDetalleMantenimiento(buttonNeumaticos.getText().toString(), "tipo_6"));
         buttonTransmision.setOnClickListener(v -> abrirDetalleMantenimiento(buttonTransmision.getText().toString(), "tipo_7"));
         buttonElectrico.setOnClickListener(v -> abrirDetalleMantenimiento(buttonElectrico.getText().toString(), "tipo_8"));
+        buttonTodos.setOnClickListener(v -> abrirDetalleMantenimiento("Mantenimiento Global", "tipo_9"));
 
         registrar_mantenimiento = findViewById(R.id.Registrar_mantenimiento);
         registrar_mantenimiento.setOnClickListener(new View.OnClickListener() {
@@ -62,13 +64,6 @@ public class MosaicoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MosaicoActivity.this, RegistroMantenimientoActivity.class);
                 intent.putExtra("carId", carId);
-                //mi novio no me quiereeeeeeeeeeee :'( pq no me hace caso
-                //no me dice te amo
-                //no mira mi pantalla
-                // no le importo
-                //no me da besitos
-                //toca
-                //llorar
                 startActivity(intent);
             }
         });

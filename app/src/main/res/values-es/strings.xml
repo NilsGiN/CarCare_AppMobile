@@ -19,6 +19,7 @@
 
     <!-- Main -->
     <string name="titulo_main">Mis autos</string>
+    <string name="carcare">CarCare</string>
     <string name="placa">XXX-XXX</string>
     <string name="sistemacarro">Automatico||</string>
     <string name="marca">Mercedes Beans||</string>
@@ -43,6 +44,7 @@
     <!-- Mosaico -->
     <string name="descripcion_flecha">Flecha que indica la dirección hacia atras</string>
     <string name="titulo_mante">Mantenimiento</string>
+    <string name="descripcion_boton_todo">Boton que selecciona todos los mantenimientos</string>
     <string name="aceites">Aceites y filtros</string>
     <string name="refrigeracion">Refrigeración</string>
     <string name="frenos">Frenos</string>

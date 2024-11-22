@@ -73,6 +73,7 @@ public class RegistroMantenimientoActivity extends AppCompatActivity {
 
         // Lista de mantenimientos
         List<TipoMantenimiento> tiposMantenimiento = new ArrayList<>();
+        tiposMantenimiento.add(new TipoMantenimiento("tipo_9", "Mantenimiento Global"));
         tiposMantenimiento.add(new TipoMantenimiento("tipo_1", "Aceite y Filtros"));
         tiposMantenimiento.add(new TipoMantenimiento("tipo_2", "Refrigeración"));
         tiposMantenimiento.add(new TipoMantenimiento("tipo_3", "Frenos"));
