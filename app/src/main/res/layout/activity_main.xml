@@ -40,13 +40,15 @@
         android:id="@+id/text_view_recordatorio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_fecha_cardview"
+        android:background="@color/colorStart"
         android:gravity="center"
         android:padding="20dp"
         android:text="No se encontraron mantenimentos, recuerda registrar uno."
-        android:textColor="@color/text_historial"
-        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.03"
         tools:layout_editor_absoluteX="-16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
